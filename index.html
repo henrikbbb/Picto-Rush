@@ -10,6 +10,9 @@
       padding: 0;
       margin: 0;
     }
+    .container {
+      text-align: center;
+    }
     p {
       line-height: 5px;   /* within paragraph */
       margin-bottom: 5px; /* between paragraphs */
@@ -21,7 +24,12 @@
 
 <body>
   <main>
-    <button id="button1">new words</button>
+    <div class="container">
+      <input type="range" min="5" max="50" value="20" step="5" id="slider"></input>
+    </div>
+    <div class="container">
+      <button id="button1">20 neue Wörter</button>
+    </div>
   </main>
 </body>
 

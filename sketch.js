@@ -1,27 +1,26 @@
 let words
+let slider
 
 function preload() {
 	words = loadStrings('words.txt')
-
-	for (let i = words.length-1; 0; i--) {
-		let word = words[i]
-		if (word.lenght == 0 || word == '') {
-			console.log(i, word)
-			words.splice(i, 1)
-		}
-	}
-
 }
 
 function setup() {
 	noCanvas()
 
+	slider = select('#slider')
 	button_new_words = select('#button1')
+
+	slider.input(() => {
+		let n = slider.value()
+		button_new_words.html(str(n) + ' neue Wörter')
+	})
+
 	button_new_words.mousePressed(() => {
 		removeElements()
 		let table = createElement('table')
 		let counter = 0
-		while (counter < 20) {
+		while (counter < slider.value()) {
 			let word = words.splice(int(random(words.length)), 1)[0]
 			if (word == '') {
 				continue
